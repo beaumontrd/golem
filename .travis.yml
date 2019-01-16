@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t beaumontrd/golem -f Dockerfile.dev .
+
+script:
+  - docker run beaumontrd/golem npm run test -- --coverage
